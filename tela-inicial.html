@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tela Inicial</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; }
+        .tab { display: flex; background-color: #f1f1f1; }
+        .tab button { flex: 1; padding: 10px; cursor: pointer; border: none; }
+        .tab button:hover { background-color: #ddd; }
+        .tab-content { display: none; padding: 20px; }
+        .active { display: block; }
+        .home { background-color: #4CAF50; color: white; }
+        .search { background-color: #2196F3; color: white; }
+        .settings { background-color: #f44336; color: white; }
+    </style>
+</head>
+<body>
+    <h1>Application Interface</h1>
+    <div class="tab">
+        <button class="tablinks" onclick="openTab(event, 'Home')">Home</button>
+        <button class="tablinks" onclick="openTab(event, 'Search')">Search</button>
+        <button class="tablinks" onclick="openTab(event, 'Settings')">Settings</button>
+    </div>
+
+    <div id="Home" class="tab-content">
+        <h3>Home</h3>
+        <p>Welcome to the home screen!</p>
+        <form id="loginForm">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            <br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <br>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+    <div id="Search" class="tab-content">
+        <h3>Search</h3>
+        <p>Search functionality will be here.</p>
+    </div>
+
+    <div id="Settings" class="tab-content">
+        <h3>Settings</h3>
+        <p>Settings options will be here.</p>
+    </div>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";  
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+
+        // Show the default tab
+        document.querySelector(".tablinks").click();
+    </script>
+</body>
+</html>
